@@ -1,0 +1,682 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2022.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js" &gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script</p>
+<p class="p1"><span class="Apple-converted-space">      </span>type="text/javascript"<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>src="sketch.js"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" type="text/css" href="style.css"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="utf-8" /&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;THE IDENTITY PROJECT.&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h3&gt;discover your identity through generative art&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h4&gt;with your answers to these randomly selected questions from the Myers Briggs personality test, my algorithm will generate a data visualization that is unique to you&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;br&gt; <span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1">&lt;button type="button" onclick="document.getElementById('demo').style.display='block'"&gt;begin&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;body style= "background-color= black"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p id="demo" style = "display:none"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text&gt; Q1 &lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text id= "Q1"&gt;&lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "1" id = "a1" value="a"<span class="Apple-converted-space">  </span>onclick="countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="a" &gt;agree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "1" id = "n1"<span class="Apple-converted-space">              </span>value="n" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="n" &gt;neutral&lt;/label&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "1" id = "d1"<span class="Apple-converted-space">              </span>value="d" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="d"&gt;disagree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text&gt; Q2 &lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text id= "Q2"&gt;&lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name= "2" id= "a2" value="a" onclick="countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="a" &gt;agree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name= "2" id= "n2"<span class="Apple-converted-space">              </span>value="n" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="n"&gt;neutral&lt;/label&gt;<span class="Apple-converted-space">   </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "2" id = "d2"<span class="Apple-converted-space">              </span>value="d" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="d"&gt;disagree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text&gt; Q3 &lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text id= "Q3"&gt;&lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "3" id = "a3"<span class="Apple-converted-space">              </span>value="a" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="a"&gt;agree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name= "3" id= "n3"<span class="Apple-converted-space">              </span>value="n" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="n"&gt;neutral&lt;/label&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "3" id = "d3"<span class="Apple-converted-space">              </span>value="d" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="d"&gt;disagree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text&gt; Q4 &lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text id= "Q4"&gt;&lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "4" id = "a4"<span class="Apple-converted-space">              </span>value="a" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="a"&gt;agree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name= "4" id= "n4"<span class="Apple-converted-space">              </span>value="n" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="n"&gt;neutral&lt;/label&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "4" id = "d4"<span class="Apple-converted-space">              </span>value="d" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="d"&gt;disagree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text&gt; Q5 &lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text id= "Q5"&gt;&lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "5" id = "a5"<span class="Apple-converted-space">              </span>value="a" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="a"&gt;agree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name= "5" id= "n5"<span class="Apple-converted-space">              </span>value="n" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="n"&gt;neutral&lt;/label&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "5" id = "d5"<span class="Apple-converted-space">              </span>value="d" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="d"&gt;disagree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text&gt; Q6 &lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text id= "Q6"&gt;&lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "6" id = "a6"<span class="Apple-converted-space">              </span>value="a" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="a"&gt;agree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name= "6" id= "n6"<span class="Apple-converted-space">              </span>value="n" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="n"&gt;neutral&lt;/label&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "6" id = "d6"<span class="Apple-converted-space">              </span>value="d" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="d"&gt;disagree&lt;/label&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text&gt; Q7 &lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text id= "Q7"&gt;&lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "7" id = "a7"<span class="Apple-converted-space">              </span>value="a" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="a"&gt;agree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name= "7" id= "n7"<span class="Apple-converted-space">              </span>value="n" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="n"&gt;neutral&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "7" id = "d7"<span class="Apple-converted-space">              </span>value="d" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="d"&gt;disagree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text&gt; Q8 &lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text id= "Q8"&gt;&lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "8" id = "a8"<span class="Apple-converted-space">              </span>value="a" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="a"&gt;agree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name= "8" id= "n8"<span class="Apple-converted-space">              </span>value="n" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="n"&gt;neutral&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "8" id = "d8"<span class="Apple-converted-space">              </span>value="d" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="d"&gt;disagree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text&gt; Q9 &lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text id= "Q9"&gt;&lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "9" id = "a9"<span class="Apple-converted-space">              </span>value="a" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="a"&gt;agree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name= "9" id= "n9"<span class="Apple-converted-space">              </span>value="n" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="n"&gt;neutral&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "9" id = "d9"<span class="Apple-converted-space">              </span>value="d" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="d"&gt;disagree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text&gt; Q10 &lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text id= "Q10"&gt;&lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "10" id = "a10"<span class="Apple-converted-space">              </span>value="a" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="a"&gt;agree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name= "10" id= "n10"<span class="Apple-converted-space">              </span>value="n" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="n"&gt;neutral&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "10" id = "d10"<span class="Apple-converted-space">              </span>value="d" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="d"&gt;disagree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text&gt; Q11 &lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text id= "Q11"&gt;&lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "11" id = "a11"<span class="Apple-converted-space">              </span>value="a" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="a"&gt;agree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name= "11" id= "n11"<span class="Apple-converted-space">              </span>value="n" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="n"&gt;neutral&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "11" id = "d11"<span class="Apple-converted-space">              </span>value="d" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="d"&gt;disagree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text&gt; Q12 &lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text id= "Q12"&gt;&lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "12" id = "a12"<span class="Apple-converted-space">              </span>value="a" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="a"&gt;agree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name= "12" id= "n12"<span class="Apple-converted-space">              </span>value="n" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="n"&gt;neutral&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "12" id = "d12"<span class="Apple-converted-space">              </span>value="d" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="d"&gt;disagree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text&gt; Q13 &lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text id= "Q13"&gt;&lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "13" id = "a13"<span class="Apple-converted-space">              </span>value="a" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="a"&gt;agree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name= "13" id= "n13"<span class="Apple-converted-space">              </span>value="n" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="n"&gt;neutral&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "13" id = "d13"<span class="Apple-converted-space">              </span>value="d" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="d"&gt;disagree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text&gt; Q14 &lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text id= "Q14"&gt;&lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "14" id = "a14"<span class="Apple-converted-space">              </span>value="a" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="a"&gt;agree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name= "14" id= "n14"<span class="Apple-converted-space">              </span>value="n" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="n"&gt;neutral&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "14" id = "d14"<span class="Apple-converted-space">              </span>value="d" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="d"&gt;disagree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text&gt; Q15 &lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text id= "Q15"&gt;&lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "15" id = "a15"<span class="Apple-converted-space">              </span>value="a" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="a"&gt;agree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name= "15" id= "n15"<span class="Apple-converted-space">              </span>value="n" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="n"&gt;neutral&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "15" id = "d15"<span class="Apple-converted-space">              </span>value="d" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="d"&gt;disagree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text&gt; Q16 &lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text id= "Q16"&gt;&lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "16" id = "a16"<span class="Apple-converted-space">              </span>value="a" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="a"&gt;agree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name= "16" id= "n16"<span class="Apple-converted-space">              </span>value="n" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="n"&gt;neutral&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "16" id = "d16"<span class="Apple-converted-space">              </span>value="d" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="d"&gt;disagree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text&gt; Q17 &lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text id= "Q17"&gt;&lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "17" id = "a17"<span class="Apple-converted-space">              </span>value="a" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="a"&gt;agree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name= "17" id= "n17"<span class="Apple-converted-space">              </span>value="n" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="n"&gt;neutral&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "17" id = "d17"<span class="Apple-converted-space">              </span>value="d" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="d"&gt;disagree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text&gt; Q18 &lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text id= "Q18"&gt;&lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "18" id = "a18"<span class="Apple-converted-space">              </span>value="a" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="a"&gt;agree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name= "18" id= "n18"<span class="Apple-converted-space">              </span>value="n" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="n"&gt;neutral&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "18" id = "d18"<span class="Apple-converted-space">              </span>value="d" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="d"&gt;disagree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text&gt; Q19 &lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text id= "Q19"&gt;&lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "19" id = "a19"<span class="Apple-converted-space">              </span>value="a" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="a"&gt;agree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name= "19" id= "n19"<span class="Apple-converted-space">              </span>value="n" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="n"&gt;neutral&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "19" id = "d19"<span class="Apple-converted-space">              </span>value="d" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="d"&gt;disagree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text&gt; Q20 &lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;text id= "Q20"&gt;&lt;/text&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "20" id = "a20"<span class="Apple-converted-space">              </span>value="a" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="a"&gt;agree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name= "20" id= "n20"<span class="Apple-converted-space">              </span>value="n" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="n"&gt;neutral&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;text&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/text&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="radio" name = "20" id = "d20"<span class="Apple-converted-space">              </span>value="d" onclick= "countTag(name, value)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="d"&gt;disagree&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1">&lt;script type="text/javascript"&gt;</p>
+<p class="p1">function stopColors()</p>
+<p class="p1">{</p>
+<p class="p1">background: (255);</p>
+<p class="p1">//document.getElementById('demo').style.display='block'</p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1">function display()</p>
+<p class="p1">{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background()</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('demo').style.display='block'</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">let visibleQs = [0];</p>
+<p class="p1">let answers = [];</p>
+<p class="p1">let loc = 100;</p>
+<p class="p1">let runCount = 1;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1">class Q {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>constructor(number, question, tag) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>this.number = number;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>this.question = question;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>this.tag = tag;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">class Questions {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>constructor() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>this.questions = [];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>newQuestion(number, question, tag) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let q = new Q(number, question, tag);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>this.questions.push(q);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return q;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1">function DisplayQuestions() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>var QCount = 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>//var counter = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>while (QCount &lt; 20) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>var QNumber = 1 + Math.floor(60 * Math.random());</p>
+<p class="p1"><span class="Apple-converted-space">    </span>//var location = 100 + counter;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (null != quest.questions[QNumber-1]) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let tag = quest.questions[QNumber-1].tag;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>visibleQs.push(tag);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>var QName = "Q";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>QName += QCount+1;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById(QName).innerHTML = quest.questions[QNumber-1].question;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>quest.questions[QNumber-1] = null; // Dump this question - it's been displayed</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>QCount++;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>//counter += 100;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1">let quest = new Questions();</p>
+<p class="p1">quest.newQuestion(1, "You regularly make new friends", "E");</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>2,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You spend a lot of your free time exploring various random topics that pique your interest",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"S"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>3,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"Seeing other people cry can easily make you feel like you want to cry too",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"F"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(4, "You often make a backup plan for a backup plan", "T");</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>5,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You usually stay calm, even under a lot of pressure",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"T"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>6,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"At social events, you rarely try to introduce yourself to new people and mostly talk to the ones you already know",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"I"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>7,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You prefer to completely finish one project before starting another",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"J"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(8, "You are very sentimental", "F");</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>9,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You like to use organizing tools like schedules and lists",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"J"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>10,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"Even a small mistake can cause you to doubt your overall abilities and knowledge",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"P"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>11,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You feel comfortable just walking up to someone you find interesting and striking up a conversation",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"E"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>12,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You are not too interested in discussing various interpretations and analyses of creative works",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"S"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>13,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You are more inclined to follow your head than your heart",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"T"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>14,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You usually prefer just doing what you feel like at any given moment instead of planning a particular daily routine",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"P"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>15,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You rarely worry about whether you make a good impression on people you meet",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"E"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(16, "You enjoy participating in group activities", "E");</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>17,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You like books and movies that make you come up with your own interpretation of the ending",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"N"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>18,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"Your happiness comes more from helping others accomplish things than your own accomplishments",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"E"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>19,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You are interested in so many things that you find it difficult to choose what to try next",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"S"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>20,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You are prone to worrying that things will take a turn for the worse",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"F"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(21, "You are definitely not an artistic type of person", "I");</p>
+<p class="p1">quest.newQuestion(22, "You avoid leadership roles in group settings", "J");</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>23,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You think the world would be a better place if people relied more on rationality and less on their feelings",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"T"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>24,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You prefer to do your chores before allowing yourself to relax",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"J"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(25, "You enjoy watching people argue", "S");</p>
+<p class="p1">quest.newQuestion(26, "You tend to avoid drawing attention to yourself", "I");</p>
+<p class="p1">quest.newQuestion(27, "Your mood can change very quickly", "F");</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>28,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You lose patience with people who are not as efficient as you",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"J"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>29,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You often end up doing things at the last possible moment",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"P"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>30,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You have always been fascinated by the question of what, if anything, happens after death",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"N"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>31,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You usually prefer to be around others rather than on your own",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"E"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>32,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You become bored or lose interest when the discussion gets highly theoretical",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"S"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>33,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You find it easy to empathize with a person whose experiences are very different from yours",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"F"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>34,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You usually postpone finalizing decisions for as long as possible",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"P"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>35,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You rarely second-guess the choices that you have made",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"S"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>36,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"After a long and exhausting week, a lively social event is just what you need",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"E"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(37, "You enjoy going to art museums", "N");</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>38,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You often have a hard time understanding other people’s feelings",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"T"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(39, "You like to have a to-do list for each day", "J");</p>
+<p class="p1">quest.newQuestion(40, "You rarely feel insecure", "E");</p>
+<p class="p1">//something is off here number wise</p>
+<p class="p1">quest.newQuestion(41, "You avoid making phone calls", "I");</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>42,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You often spend a lot of time trying to understand views that are very different from your own",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"N"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>43,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"In your social circle, you are often the one who contacts your friends and initiates activities",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"E"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>44,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"If your plans are interrupted, your top priority is to get back on track as soon as possible",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"J"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>45,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You are still bothered by mistakes that you made a long time ago",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"J"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>46,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You rarely contemplate the reasons for human existence or the meaning of life",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"S"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>47,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"Your emotions control you more than you control them",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"F"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>48,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You take great care not to make people look bad, even when it is completely their fault",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"F"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>49,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"Your personal work style is closer to spontaneous bursts of energy than organized and consistent efforts",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"P"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>50,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"When someone thinks highly of you, you wonder how long it will take them to feel disappointed in you",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"N"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>51,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You would love a job that requires you to work alone most of the time",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"I"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>52,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You believe that pondering abstract philosophical questions is a waste of time",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"S"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>53,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You feel more drawn to places with busy, bustling atmospheres than quiet, intimate places",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"E"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(54, "You know at first glance how someone is feeling", "F");</p>
+<p class="p1">quest.newQuestion(55, "You often feel overwhelmed", "F");</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>56,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You complete things methodically without skipping over any steps",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"J"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>57,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You are very intrigued by things labeled as controversial",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"N"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>58,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You would pass along a good opportunity if you thought someone else needed it more",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"F"</p>
+<p class="p1">);</p>
+<p class="p1">quest.newQuestion(59, "You struggle with deadlines", "P");</p>
+<p class="p1">quest.newQuestion(</p>
+<p class="p1"><span class="Apple-converted-space">  </span>60,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"You feel confident that things will work out for you",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"N");</p>
+<p class="p2"><br></p>
+<p class="p1">DisplayQuestions();</p>
+<p class="p1">//document.getElementById("Q1").innerHTML = visibleQs[1];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
